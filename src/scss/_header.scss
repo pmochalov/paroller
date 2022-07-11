@@ -1,0 +1,40 @@
+.header {
+    @include wrapper;
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: $headerColor;
+    width: 100%;
+
+    &__logo {
+        color: $headerLogoColor;
+        font-weight: $fontWeightBold;
+        font-size: 24px;
+
+        @include w-from($screen-md) {
+            font-size: 48px;
+        }        
+    }
+
+    &__delimeter {
+        height: 24px;
+        margin-right: 12px;
+        margin-left: 12px;
+        background-color: $headerDelimeterColor;
+        width: 1px;
+
+        @include w-from($screen-md) {
+            margin-right: 32px;
+            margin-left: 32px;
+        }             
+    }
+
+    &__desc {
+        font-size: 12px;
+
+        @include w-from($screen-md) {
+            font-size: 18px;
+        }            
+    }
+}

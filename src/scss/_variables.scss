@@ -1,0 +1,44 @@
+$screen-sm: 320px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+
+$grid-container-width: 1280px;
+
+$fontFamily: 'Fira Code', monospace;
+$fontWeight: 400;
+$fontWeightBold: 700;
+$fontColor: #fff;
+
+$pageBg: #333;
+$colorBlack: #000;
+$borderRadius: 8px;
+
+$headerColor: #fff;
+$headerLogoColor: #FF0000;
+$headerDelimeterColor: #c4c4c4;
+
+$introColor: #fff;
+
+$formPasswordColor: #F2994A;
+$formPasswordBg: #111;
+
+$buttonColor: transparentize($fontColor, .5);
+$buttonDisabledColor: transparentize($fontColor, .5);
+$buttonSubmitBg: #27AE60;
+$buttonOptionBg: #444444;
+$buttonBorder: $buttonSubmitBg;
+
+$footerLinkColor: $fontColor;
+$footerLinkHoverColor: $headerLogoColor;
+
+
+
+
+
+
+
+
+
+
+
+

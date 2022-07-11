@@ -1,0 +1,47 @@
+.button {
+    display: inline-block;
+    height: 56px;
+    border: none;
+    border-radius: $borderRadius;
+    color: $buttonColor;
+    background-color: $buttonOptionBg;
+    outline: none;
+
+    @include w-from($screen-md) {
+        height: 64px;       
+    }     
+
+    &:hover {
+        cursor:pointer
+    }
+
+    &:active {
+        border: $buttonBorder 2px solid
+    }
+
+    &_checked {
+        border: $buttonBorder 2px solid;
+        color: $fontColor;
+    }   
+    
+    &[disabled] {
+        color:transparentize($colorBlack, .5)
+    }
+    
+    &_option {
+        font-size: 32px;
+    }
+
+    &_submit {
+        width: 100%;
+        background-color: $buttonSubmitBg;
+        font-weight: $fontWeightBold;
+        color: $fontColor
+    }
+
+    &_submit[disabled] {
+        color: transparentize($fontColor, .5)
+    }    
+
+
+}
