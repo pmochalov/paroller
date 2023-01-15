@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap");
+@import "scss/normalize";
+@import "./scss/variables";
+@import "./scss/mixines";
+// @import 'scss/header';
+// @import 'scss/intro';
+// @import 'scss/form';
+// @import 'scss/button';
+// @import 'scss/footer';
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: $pageBg;
+    font-family: $fontFamily;
+    font-weight: $fontWeight;
+    // overflow: hidden
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px 1fr 48px;
+
+    @include w-from($screen-md) {
+        grid-template-rows: 120px 1fr 48px;
+    }
+}
+
+a {
+    color: $fontColor;
+    text-decoration: none;
+}
+
+.main {
+    grid-area: main;
+    height: 100%;
+}
+
+.intro {
+    @include wrapper;
+    height: 72px;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $introColor;
+
+    @include w-from($screen-md) {
+        flex-direction: row;
+        height: 144px;
+        font-size: 24px;
+        line-height: 31px;
+
+        span:first-child {
+            margin-right: 16px;
+        }
+    }
+}
+
+.form {
+    @include wrapper;
+    margin-top: 16px;
+
+    &__row:not(:first-child) {
+        margin-top: 16px;
+
+        @include w-from($screen-md) {
+            margin-top: 32px;
+        }
+    }
+
+    &__row_selector {
+        display: grid;
+        grid-template-columns: 80px 1fr 80px;
+
+        @include w-from($screen-md) {
+            grid-template-columns: 128px 1fr 128px;
+        }
+    }
+
+    // Длина пароля
+    &__passwordLength {
+        height: 56px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        color: $fontColor;
+
+        @include w-from($screen-md) {
+            height: 64px;
+        }
+    }
+
+    // Опции
+    &__row_options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 8px;
+
+        @include w-from($screen-md) {
+            grid-gap: 16px;
+        }
+    }
+}
