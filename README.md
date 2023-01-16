@@ -24,5 +24,12 @@
         max: 10
     }
 
+    export const optionsDefault = {
+        uppercase: false,
+        lowercase: true,
+        numbers: true,
+        symbols: false
+    }    
+
     export const pwdLength = 8;
 ```
