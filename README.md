@@ -5,7 +5,7 @@
 - прописные, строчные буквы;
 - специальные символы.
 
-[Демо](https://mchlv.ru/paroller)
+[Демо](https://mchlv.ru/projects/paroller)
 
 ![](images/intro.png)
 
