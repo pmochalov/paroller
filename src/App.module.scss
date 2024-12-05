@@ -2,11 +2,6 @@
 @import "scss/normalize";
 @import "./scss/variables";
 @import "./scss/mixines";
-// @import 'scss/header';
-// @import 'scss/intro';
-// @import 'scss/form';
-// @import 'scss/button';
-// @import 'scss/footer';
 
 html,
 body {
@@ -17,7 +12,6 @@ body {
     background-color: $pageBg;
     font-family: $fontFamily;
     font-weight: $fontWeight;
-    // overflow: hidden
 }
 
 .wrapper {
