@@ -2,16 +2,17 @@ import s from "./ButtonSubmit.module.scss";
 
 type ButtonSubmitType = {
     children?: React.ReactNode;
+    onClick?: () => void;
 };
 
-const ButtonSubmit: React.FC<ButtonSubmitType> = (props) => {
+const ButtonSubmit: React.FC<ButtonSubmitType> = ({ children, onClick }) => {
     return (
         <button
             type='button'
             className={`${s.button} ${s.button_submit}`}
-            {...props}
+            onClick={onClick}
         >
-            {props.children}
+            {children}
         </button>
     );
 };

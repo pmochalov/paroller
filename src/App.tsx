@@ -1,6 +1,12 @@
 import s from "./App.module.scss";
 import { useState } from "react";
-import { strings, limit, optionsDefault, pwdLength } from "./config";
+import {
+    strings,
+    limit,
+    optionsDefault,
+    pwdLength,
+    OptionsType,
+} from "./config";
 import Button from "./components/Button/Button";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -8,12 +14,19 @@ import PasswordField from "./components/PasswordField/PasswordField";
 import ButtonSubmit from "./components/ButtonSubmit/ButtonSubmit";
 
 function App() {
-  
-    const [password, setPassword] = useState("");
-    const [length, setLength] = useState(pwdLength);
-    const [options, setOptions] = useState(JSON.parse(localStorage.getItem("options")) ?? optionsDefault);
+    const [password, setPassword] = useState<string>("");
+    const [length, setLength] = useState<number>(pwdLength);
 
-    const checkLimitValue = (value) => {
+    const [options, setOptions] = useState<OptionsType>(() => {
+        try {
+            const storedOptions = localStorage.getItem("options");
+            return storedOptions ? JSON.parse(storedOptions) : optionsDefault;
+        } catch {
+            return optionsDefault;
+        }
+    });
+
+    const checkLimitValue = (value: number) => {
         return value < limit.min
             ? limit.min
             : value > limit.max
@@ -21,12 +34,12 @@ function App() {
             : value;
     };
 
-    const setLengthHandler = (value) => {
+    const setLengthHandler = (value: number) => {
         setLength(checkLimitValue(value));
     };
 
-    const handleBtnOptions = (value) => {
-        const newOptions = { ...options, ...value };
+    const handleBtnOptions = (value: Partial<OptionsType>) => {
+        const newOptions: OptionsType = { ...options, ...value };
 
         if (!validOptions(newOptions)) return;
 
@@ -35,9 +48,9 @@ function App() {
         localStorage.setItem("options", JSON.stringify(newOptions));
     };
 
-    const validOptions = (newOptions) => {
+    const validOptions = (newOptions: OptionsType) => {
         for (let key in newOptions) {
-            if (newOptions[key]) {
+            if (key in newOptions) {
                 return true;
             }
         }
@@ -50,7 +63,7 @@ function App() {
         let pwd = "";
 
         for (let key in options) {
-            if (options[key]) {
+            if (key in options) {
                 stringSrc += strings[key];
             }
         }
@@ -62,7 +75,7 @@ function App() {
         setPassword(pwd);
     };
 
-    const getRandomInt = (min, max) => {
+    const getRandomInt = (min: number, max: number) => {
         min = Math.ceil(min);
         max = Math.floor(max);
 
