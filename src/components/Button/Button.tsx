@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({ isChecked, children, ...props }) => {
         return isChecked ? `${s.button} ${s.button_checked}` : `${s.button}`;
     };
 
-    const btnClass = isChecked ? setBtnClass(isChecked) : "";
+    const btnClass = isChecked !== undefined ? setBtnClass(isChecked) : "";
 
     return (
         <button type='button' className={btnClass} {...props}>
